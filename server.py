@@ -1,8 +1,8 @@
 import socket
 import threading
 
-SERVER_IP = '0.0.0.0'
-PORT = 9009
+SERVER_IP = 'localhost'
+PORT = 12345
 ADDR = (SERVER_IP, PORT)
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
@@ -58,7 +58,7 @@ def start():
             thread = threading.Thread(target=handle_client, args=(client,nickname,))
             thread.start()
             
-            print(f"[ACTIVE CONNECTIONS] {threading.activeCount() - 1}")
+            print(f"[ACTIVE CONNECTIONS] {threading.active_count() - 1}")
         else:
             print("[FULL] The server is full. Please try again later.")
 
